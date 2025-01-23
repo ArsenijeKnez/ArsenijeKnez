@@ -3,36 +3,39 @@ import './Projects.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import GridChargeGif from '../../../assets/images/GridCharge.gif';
+import FitnessDiaryGif from '../../../assets/images/FitnessDiary.gif';
+import MellisaWebGif from '../../../assets/images/MellisaWeb.gif';
 
 const projectData = [
   {
     title: 'GridCharger',
     description: 'Promotional Page for Electric Vehicle Charging App',
-    thumbnailUrl: 'src/assets/images/GridCharge.gif',
+    thumbnailUrl: GridChargeGif,
     demoUrl: 'https://arsenijeknez.github.io/GridCharge/#gridcharge',
-    githubUrl: 'https://github.com/ArsenijeKnez/GridCharge'
+    githubUrl: 'https://github.com/ArsenijeKnez/GridCharge',
   },
   {
     title: 'Base Defender',
     description: '2D strategy game developed in Unity',
     thumbnailUrl: 'https://www.youtube.com/embed/t70LbQjUq00',
-    demoUrl: 'https://arsenijeknez.itch.io/base-defender' 
+    demoUrl: 'https://arsenijeknez.itch.io/base-defender',
   },
   {
     title: 'Fitness Diary',
-    description: 'App managing personal fittnes',
-    thumbnailUrl: 'src/assets/images/FitnessDiary.gif',
-    githubUrl: 'https://github.com/ArsenijeKnez/FitnessApp' 
+    description: 'App managing personal fitness',
+    thumbnailUrl: FitnessDiaryGif,
+    githubUrl: 'https://github.com/ArsenijeKnez/FitnessApp',
   },
   {
     title: 'Mellisa',
     description: 'Web page for an upcoming indie video game',
-    thumbnailUrl: 'src/assets/images/MellisaWeb.gif',
+    thumbnailUrl: MellisaWebGif,
     demoUrl: 'https://arsenijeknez.github.io/MellisaWeb/',
-    githubUrl:'https://github.com/ArsenijeKnez/MellisaWeb' 
+    githubUrl: 'https://github.com/ArsenijeKnez/MellisaWeb',
   },
-  
 ];
+
 
 const Projects = () => {
   const settings = {
