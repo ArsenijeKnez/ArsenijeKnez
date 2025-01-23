@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
-
+import url from '/public/ArsenijeKnežević_CV.pdf';
 
 
 const Navbar = () => {
-  const url  = '/ArsenijeKnežević_CV.pdf';
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
