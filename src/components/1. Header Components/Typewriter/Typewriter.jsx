@@ -3,11 +3,9 @@ import './Typewriter.css';
 
 const typeWriterText = [
   'Software Developer...',
-  '8+ years of coding...',
+  'Unity Developer...',
   'Full Stack Engineer...',
-  'Freelancer...',
   'Dark Mode Activist...',
-  'Inventor of the Undo Button...'
 ];
 
 const typing_speed = 150;
