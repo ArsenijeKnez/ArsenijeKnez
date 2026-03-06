@@ -1,4 +1,4 @@
-@import url('../../../assets/css/main.css');
+@import url("../../../assets/css/main.css");
 
 body {
   background-color: var(--medium-color) !important;
@@ -35,7 +35,6 @@ body {
 .contact-form textarea:focus,
 .contact-form button:focus {
   outline: none;
-  
 }
 
 .contact-form input::placeholder,
@@ -76,7 +75,7 @@ body {
   text-align: center;
 }
 
-.contact-form button[type='submit'] {
+.contact-form button[type="submit"] {
   background-color: var(--accent-color);
   color: var(--dark-color);
   text-transform: uppercase;
@@ -86,15 +85,12 @@ body {
   margin-top: 16px;
 }
 
-.contact-form button[type='submit']:hover {
+.contact-form button[type="submit"]:hover {
   background-color: var(--highlight-color) !important;
-    color: var(--dark-color) !important;
-    transform: translateY(-1px);
+  color: var(--dark-color) !important;
+  transform: translateY(-1px);
   border: none;
-  }
-
-
-
+}
 
 .submit-button:hover {
   background-color: var(--highlight-color);
@@ -103,8 +99,8 @@ body {
 }
 @media (max-width: 767px) {
   .contact-form {
-  margin-top: 1.7em;
-}
+    margin-top: 1.7em;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {

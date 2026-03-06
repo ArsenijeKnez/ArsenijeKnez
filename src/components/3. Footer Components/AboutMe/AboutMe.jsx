@@ -1,7 +1,6 @@
-import React from 'react';
-import './AboutMe.css';
-import ContactMe from '../ContactMe/ContactMe';
-
+import React from "react";
+import "./AboutMe.css";
+import ContactMe from "../ContactMe/ContactMe";
 
 const AboutMe = () => {
   return (
@@ -15,8 +14,12 @@ const AboutMe = () => {
               </h2>
 
               <p className="wow fadeInUp" data-wow-delay=".4s">
-                <hr /> I'm a 23-year-old software engineer based in Novi Sad, Serbia. I hold a bachelor's degree in Applied Software Engineering and am currently pursuing my master's degree. While I'm most experienced with C#, C++, JavaScript, and Python, I enjoy exploring new technologies and continually expanding my skill set.
-              
+                <hr /> I'm a 23-year-old software engineer based in Novi Sad,
+                Serbia. I hold a bachelor's degree in Applied Software
+                Engineering and am currently pursuing my master's degree. While
+                I'm most experienced with C#, C++, JavaScript, and Python, I
+                enjoy exploring new technologies and continually expanding my
+                skill set.
                 <hr />
                 <h2>Coding with purpose. </h2>
               </p>
@@ -34,6 +37,3 @@ const AboutMe = () => {
 };
 
 export default AboutMe;
-
-
-

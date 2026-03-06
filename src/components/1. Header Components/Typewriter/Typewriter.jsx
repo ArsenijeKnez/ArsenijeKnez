@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import './Typewriter.css';
+import React, { useState, useEffect, useMemo } from "react";
+import "./Typewriter.css";
 
 const typeWriterText = [
-  'Software Developer...',
-  'Unity Developer...',
-  'Full Stack Engineer...',
-  'Dark Mode Activist...',
+  "Software Developer...",
+  "Unity Developer...",
+  "Automation & QA Enthusiast...",
+  "Full-Stack Developerr...",
 ];
 
 const typing_speed = 150;
@@ -18,38 +18,44 @@ function Typewriter() {
   const [isFullyDisplayed, setIsFullyDisplayed] = useState(false);
 
   useEffect(() => {
-    let interval = setInterval(() => {
-      if (isDeleting) {
-        setSkill(prevSkill => prevSkill.substring(0, prevSkill.length - 1));
-        if (skill === '') {
-          setIsDeleting(false);
-          setIsFullyDisplayed(false);
-        }
-      } else {
-        const nextSkill = typeWriterText[index];
-        setSkill(prevSkill => nextSkill.substring(0, prevSkill.length + 1));
-        if (skill === nextSkill) {
-          setIsFullyDisplayed(true);
-          setTimeout(() => {
-            setIsDeleting(true);
+    let interval = setInterval(
+      () => {
+        if (isDeleting) {
+          setSkill((prevSkill) => prevSkill.substring(0, prevSkill.length - 1));
+          if (skill === "") {
+            setIsDeleting(false);
+            setIsFullyDisplayed(false);
+          }
+        } else {
+          const nextSkill = typeWriterText[index];
+          setSkill((prevSkill) => nextSkill.substring(0, prevSkill.length + 1));
+          if (skill === nextSkill) {
+            setIsFullyDisplayed(true);
             setTimeout(() => {
-              setIsFullyDisplayed(false);
-              setIndex((index + 1) % typeWriterText.length);
-            }, 500);
-          }, 1000);
+              setIsDeleting(true);
+              setTimeout(() => {
+                setIsFullyDisplayed(false);
+                setIndex((index + 1) % typeWriterText.length);
+              }, 500);
+            }, 1000);
+          }
         }
-      }
-    }, isFullyDisplayed ? backspace_speed : typing_speed);
+      },
+      isFullyDisplayed ? backspace_speed : typing_speed,
+    );
 
     return () => clearInterval(interval);
   }, [skill, isDeleting, index, isFullyDisplayed]);
 
   const blinkingCursor = useMemo(() => {
-    return isFullyDisplayed ? '' : <span className="blinking-cursor">_</span>;
+    return isFullyDisplayed ? "" : <span className="blinking-cursor">_</span>;
   }, [isFullyDisplayed]);
 
   return (
-    <p>{skill}{blinkingCursor}</p>
+    <p>
+      {skill}
+      {blinkingCursor}
+    </p>
   );
 }
 

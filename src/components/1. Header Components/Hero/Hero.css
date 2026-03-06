@@ -1,11 +1,11 @@
-@import url('../../../assets/css/main.css');
+@import url("../../../assets/css/main.css");
 
 .hero-area {
   position: relative;
   padding: 25px 0 100px 0;
   background-size: 150% auto;
   filter: brightness(0.8) contrast(1.2);
-  background-position: right bottom ;
+  background-position: right bottom;
   background-repeat: no-repeat;
 }
 
@@ -30,10 +30,9 @@
   padding-top: 10px;
 }
 
-.hero-content p { 
+.hero-content p {
   margin-top: 15px;
   margin-bottom: 2em;
-  
 }
 
 #button {
@@ -148,7 +147,7 @@ h1.last-name {
     padding: 25px 0 100px 0;
     background-size: 150% auto;
     filter: brightness(0.8) contrast(1.2);
-    background-position: right bottom ;
+    background-position: right bottom;
     background-repeat: no-repeat;
   }
   .hero-area .hero-content h1 {
@@ -161,13 +160,12 @@ h1.last-name {
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-
   .hero-area {
     position: relative;
     padding: 25px 0 100px 0;
     background-size: 150% auto;
     filter: brightness(0.8) contrast(1.2);
-    background-position: right bottom ;
+    background-position: right bottom;
     background-repeat: no-repeat;
   }
 
@@ -195,12 +193,12 @@ h1.last-name {
 }
 
 @media (max-width: 767px) {
- .hero-area {
+  .hero-area {
     position: relative;
     padding: 25px 0 100px 0;
     background-size: 150% auto;
     filter: brightness(0.8) contrast(1.2);
-    background-position: right bottom ;
+    background-position: right bottom;
     background-repeat: no-repeat;
   }
   .hero-area .hero-content {
@@ -232,7 +230,7 @@ h1.last-name {
     padding: 25px 0 100px 0;
     background-size: 150% auto;
     filter: brightness(0.8) contrast(1.2);
-    background-position: right bottom ;
+    background-position: right bottom;
     background-repeat: no-repeat;
   }
 
@@ -244,8 +242,6 @@ h1.last-name {
     margin-bottom: 1px;
   }
 }
-
-
 
 @media only screen and (max-width: 767px) {
   .btn {

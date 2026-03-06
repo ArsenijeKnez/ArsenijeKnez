@@ -1,12 +1,10 @@
-@import url('../../../assets/css/main.css');
-
+@import url("../../../assets/css/main.css");
 
 .section.aboutme p {
   color: var(--accent-color);
   font-size: 24px;
   font-weight: bold;
   margin-top: 10px;
- 
 }
 
 .blinking-cursor {

@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import './Spinner.css';
+import React, { useEffect, useState } from "react";
+import "./Spinner.css";
 
 const Spinner = () => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCount(prevCount => {
+      setCount((prevCount) => {
         if (prevCount === 100) {
           clearInterval(interval);
           return prevCount;
