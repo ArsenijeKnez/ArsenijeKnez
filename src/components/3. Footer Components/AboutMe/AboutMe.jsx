@@ -14,12 +14,17 @@ const AboutMe = () => {
               </h2>
 
               <p className="wow fadeInUp" data-wow-delay=".4s">
-                <hr /> I'm a 23-year-old software engineer based in Novi Sad,
-                Serbia. I hold a bachelor's degree in Applied Software
-                Engineering and am currently pursuing my master's degree. While
-                I'm most experienced with C#, C++, JavaScript, and Python, I
-                enjoy exploring new technologies and continually expanding my
-                skill set.
+                <hr /> I am currently pursuing my Master’s degree in Software
+                Engineering in Novi Sad, Serbia. I hold a Bachelor’s degree in
+                Applied Software Engineering and continue to develop my skills
+                through academic work and hands-on projects, focusing on
+                building practical and well-structured software solutions.
+                <br />
+                <br />
+                I am passionate about problem-solving, software architecture,
+                and continuous improvement. For a full overview of my career and
+                contact information, please check my resume at the top of the
+                page, or feel free to reach out using the contact form.
                 <hr />
                 <h2>Coding with purpose. </h2>
               </p>

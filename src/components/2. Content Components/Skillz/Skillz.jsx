@@ -1,38 +1,46 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Skillz.css";
 import WOW from "wow.js";
 
-import csIcon from "../../../assets/images/cs.png";
 import unityIcon from "../../../assets/images/unity.png";
-import flaskIcon from "../../../assets/images/flask.png";
+import pwIcon from "../../../assets/images/playwright_logo_icon.png";
+import csIcon from "../../../assets/images/cs.png";
 
 const categories = [
   {
-    name: "Web Development",
+    name: "Web & Mobile Development",
     icon: "lni lni-code",
-    title: "Web Development",
+    title: "Web & Mobile Development",
     description:
-      "Building responsive and user-friendly web applications with modern technologies.",
+      "Developing responsive web and cross-platform mobile applications using modern JavaScript frameworks and component-based architectures.",
     skills: [
-      {
-        iconType: "lineicon",
-        icon: "lni lni-html5",
-        title: "HTML5",
-      },
-      {
-        iconType: "lineicon",
-        icon: "lni lni-css3",
-        title: "CSS3",
-      },
       {
         iconType: "lineicon",
         icon: "lni lni-javascript",
         title: "JavaScript",
+        description:
+          "Experienced in implementing dynamic and interactive web functionality, working with asynchronous programming, API integration, and modern frontend frameworks.",
+      },
+      {
+        iconType: "svg",
+        icon: '<svg style="transform: translateY(-3px);" fill="#ffffff" width="22px" height="22px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M0 16v16h32v-32h-32zM25.786 14.724c0.813 0.203 1.432 0.568 2.005 1.156 0.292 0.312 0.729 0.885 0.766 1.026 0.010 0.042-1.38 0.974-2.224 1.495-0.031 0.021-0.156-0.109-0.292-0.313-0.411-0.599-0.844-0.859-1.505-0.906-0.969-0.063-1.594 0.443-1.589 1.292-0.005 0.208 0.042 0.417 0.135 0.599 0.214 0.443 0.615 0.708 1.854 1.245 2.292 0.984 3.271 1.635 3.88 2.557 0.682 1.031 0.833 2.677 0.375 3.906-0.51 1.328-1.771 2.234-3.542 2.531-0.547 0.099-1.849 0.083-2.438-0.026-1.286-0.229-2.505-0.865-3.255-1.698-0.297-0.323-0.87-1.172-0.833-1.229 0.016-0.021 0.146-0.104 0.292-0.188s0.682-0.396 1.188-0.688l0.922-0.536 0.193 0.286c0.271 0.411 0.859 0.974 1.214 1.161 1.021 0.542 2.422 0.464 3.115-0.156 0.281-0.234 0.438-0.594 0.417-0.958 0-0.37-0.047-0.536-0.24-0.813-0.25-0.354-0.755-0.656-2.198-1.281-1.651-0.714-2.365-1.151-3.010-1.854-0.406-0.464-0.708-1.010-0.88-1.599-0.12-0.453-0.151-1.589-0.057-2.042 0.339-1.599 1.547-2.708 3.281-3.036 0.563-0.109 1.875-0.068 2.427 0.068zM18.276 16.063l0.010 1.307h-4.167v11.839h-2.948v-11.839h-4.161v-1.281c0-0.714 0.016-1.307 0.036-1.323 0.016-0.021 2.547-0.031 5.62-0.026l5.594 0.016z"></path> </g></svg>',
+        title: "TypeScript",
+        description:
+          "Strong foundation in building scalable and maintainable code using TypeScript. Strong understanding of static typing, interfaces, and modular architecture to improve code reliability and maintainability.",
       },
       {
         iconType: "lineicon",
         icon: "lni lni-react",
-        title: "React",
+        title: "React & React Native",
+        description:
+          "Experienced in building reusable UI components and managing application state using React. Familiar with developing cross-platform mobile applications using React Native and TypeScript.",
+      },
+      {
+        iconType: "lineicon",
+        icon: "lni lni-html5",
+        title: "HTML5 & CSS3",
+        description:
+          "Experienced in creating responsive layouts and structured web interfaces using modern HTML and CSS. Familiar with Flexbox, responsive design principles, and component-based styling.",
       },
     ],
   },
@@ -41,61 +49,95 @@ const categories = [
     icon: "lni lni-database",
     title: "Backend Development",
     description:
-      "Designing scalable and secure server-side applications and APIs.",
+      "Building backend services and APIs using modern server-side frameworks with a focus on scalability, maintainability, and efficient data handling.",
     skills: [
       {
-        iconType: "svg",
-        icon: '<svg style="transform: translateY(-3px);" fill="#ffffff" viewBox="-8.96 -8.96 49.92 49.92" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>dotnet</title> <path d="M3.175 20.551c-0.001 0.289-0.123 0.549-0.318 0.733l-0.001 0c-0.2 0.188-0.47 0.303-0.767 0.303s-0.568-0.116-0.769-0.304l0.001 0.001c-0.195-0.184-0.317-0.444-0.317-0.732s0.122-0.549 0.318-0.732l0.001-0c0.2-0.188 0.47-0.303 0.767-0.303s0.567 0.115 0.768 0.304l-0.001-0.001c0.195 0.184 0.317 0.444 0.318 0.733v0zM14.051 21.417h-1.947l-5.126-8.088c-0.118-0.182-0.227-0.392-0.314-0.613l-0.009-0.024h-0.045c0.041 0.365 0.064 0.787 0.064 1.215 0 0.104-0.001 0.208-0.004 0.312l0-0.015v7.213h-1.721v-11.003h2.073l4.955 7.898c0.209 0.326 0.344 0.552 0.404 0.675h0.030c-0.050-0.374-0.078-0.806-0.078-1.245 0-0.083 0.001-0.165 0.003-0.248l-0 0.012v-7.093h1.715zM22.433 21.417h-6.025v-11.003h5.786v1.55h-4.005v3.117h3.69v1.542h-3.69v3.254h4.244zM30.996 11.964h-3.084v9.454h-1.781v-9.454h-3.077v-1.55h7.941z"></path> </g></svg>',
-        title: ".NET",
-      },
-      {
         iconType: "custom",
-        icon: flaskIcon,
-        title: "Flask",
+        icon: csIcon,
+        title: "C#",
+        description:
+          "Proficient in object-oriented programming using C#. Experience building backend logic and REST APIs within the .NET ecosystem, as well as developing modular gameplay systems in Unity.",
       },
       {
         iconType: "svg",
-        icon: '<svg style="transform: translateY(-3px);" fill="#ffffff" viewBox="-11.28 -11.28 46.56 46.56" role="img" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M24 18.588a1.529 1.529 0 0 1-1.895-.72l-3.45-4.771-.5-.667-4.003 5.444a1.466 1.466 0 0 1-1.802.708l5.158-6.92-4.798-6.251a1.595 1.595 0 0 1 1.9.666l3.576 4.83 3.596-4.81a1.435 1.435 0 0 1 1.788-.668L21.708 7.9l-2.522 3.283a.666.666 0 0 0 0 .994l4.804 6.412zM.002 11.576l.42-2.075c1.154-4.103 5.858-5.81 9.094-3.27 1.895 1.489 2.368 3.597 2.275 5.973H1.116C.943 16.447 4.005 19.009 7.92 17.7a4.078 4.078 0 0 0 2.582-2.876c.207-.666.548-.78 1.174-.588a5.417 5.417 0 0 1-2.589 3.957 6.272 6.272 0 0 1-7.306-.933 6.575 6.575 0 0 1-1.64-3.858c0-.235-.08-.455-.134-.666A88.33 88.33 0 0 1 0 11.577zm1.127-.286h9.654c-.06-3.076-2.001-5.258-4.59-5.278-2.882-.04-4.944 2.094-5.071 5.264z"></path></g></svg>',
-        title: "EXPRESS.JS",
+        icon: '<svg style="transform: translateY(-3px);" fill="#ffffff" viewBox="-9.5 -10 52 52" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>dotnet</title> <path d="M3.175 20.551c-0.001 0.289-0.123 0.549-0.318 0.733l-0.001 0c-0.2 0.188-0.47 0.303-0.767 0.303s-0.568-0.116-0.769-0.304l0.001 0.001c-0.195-0.184-0.317-0.444-0.317-0.732s0.122-0.549 0.318-0.732l0.001-0c0.2-0.188 0.47-0.303 0.767-0.303s0.567 0.115 0.768 0.304l-0.001-0.001c0.195 0.184 0.317 0.444 0.318 0.733v0zM14.051 21.417h-1.947l-5.126-8.088c-0.118-0.182-0.227-0.392-0.314-0.613l-0.009-0.024h-0.045c0.041 0.365 0.064 0.787 0.064 1.215 0 0.104-0.001 0.208-0.004 0.312l0-0.015v7.213h-1.721v-11.003h2.073l4.955 7.898c0.209 0.326 0.344 0.552 0.404 0.675h0.030c-0.050-0.374-0.078-0.806-0.078-1.245 0-0.083 0.001-0.165 0.003-0.248l-0 0.012v-7.093h1.715zM22.433 21.417h-6.025v-11.003h5.786v1.55h-4.005v3.117h3.69v1.542h-3.69v3.254h4.244zM30.996 11.964h-3.084v9.454h-1.781v-9.454h-3.077v-1.55h7.941z"></path> </g></svg>',
+        title: ".NET",
+        description:
+          "Experience developing backend services using the .NET platform. Familiar with building REST APIs, dependency injection, and maintainable server-side architecture.",
       },
       {
-        iconType: "svg",
-        icon: '<svg style="transform: translateY(-3px);" fill="#ffffff" viewBox="-6.4 -6.4 44.80 44.80" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>mysql</title> <path d="M30.026 15.139c-0.082-0.006-0.177-0.010-0.273-0.010-0.484 0-0.947 0.090-1.373 0.254l0.026-0.009c-0.125 0.050-0.325 0.050-0.342 0.209 0.069 0.066 0.079 0.175 0.137 0.267 0.117 0.198 0.261 0.366 0.429 0.506l0.003 0.003c0.175 0.137 0.35 0.27 0.534 0.387 0.325 0.2 0.694 0.319 1.012 0.52 0.181 0.117 0.366 0.266 0.55 0.391 0.091 0.062 0.15 0.175 0.267 0.215v-0.025c-0.057-0.075-0.075-0.184-0.131-0.267-0.084-0.084-0.167-0.159-0.25-0.241-0.248-0.325-0.535-0.603-0.857-0.835l-0.012-0.008c-0.267-0.182-0.852-0.437-0.962-0.744l-0.016-0.018c0.218-0.031 0.412-0.077 0.599-0.139l-0.024 0.007c0.284-0.075 0.544-0.059 0.837-0.132 0.132-0.034 0.266-0.075 0.4-0.117v-0.075c-0.15-0.15-0.262-0.354-0.417-0.494-0.409-0.36-0.86-0.698-1.335-1.002l-0.045-0.027c-0.262-0.167-0.595-0.275-0.871-0.417-0.1-0.050-0.267-0.075-0.325-0.159-0.13-0.185-0.245-0.397-0.336-0.621l-0.008-0.022q-0.368-0.714-0.684-1.453c-0.144-0.383-0.287-0.697-0.448-1.001l0.023 0.047c-0.786-1.319-1.881-2.379-3.188-3.102l-0.043-0.022c-0.309-0.153-0.668-0.272-1.045-0.339l-0.025-0.004c-0.209-0.010-0.417-0.025-0.625-0.034-0.146-0.094-0.272-0.19-0.39-0.296l0.003 0.003c-0.475-0.3-1.704-0.95-2.054-0.090-0.225 0.542 0.334 1.077 0.527 1.352 0.154 0.183 0.294 0.388 0.415 0.605l0.010 0.020c0.059 0.145 0.075 0.294 0.134 0.445 0.145 0.452 0.292 0.823 0.459 1.182l-0.026-0.062c0.099 0.199 0.202 0.368 0.317 0.528l-0.008-0.012c0.067 0.091 0.182 0.134 0.209 0.284-0.086 0.181-0.153 0.391-0.19 0.61l-0.002 0.014c-0.108 0.332-0.171 0.715-0.171 1.112 0 0.621 0.153 1.206 0.423 1.72l-0.010-0.020c0.134 0.207 0.452 0.667 0.878 0.491 0.375-0.15 0.292-0.625 0.4-1.043 0.025-0.1 0.009-0.166 0.060-0.234v0.019c0.117 0.235 0.235 0.459 0.342 0.694 0.302 0.435 0.661 0.805 1.071 1.11l0.013 0.009c0.2 0.15 0.359 0.41 0.609 0.502v-0.025h-0.019c-0.057-0.062-0.12-0.117-0.189-0.164l-0.004-0.002c-0.155-0.152-0.299-0.316-0.429-0.489l-0.008-0.011c-0.326-0.44-0.636-0.938-0.905-1.461l-0.029-0.061c-0.137-0.262-0.252-0.545-0.362-0.804-0.050-0.1-0.050-0.25-0.134-0.3-0.148 0.166-0.281 0.351-0.392 0.55l-0.008 0.016c-0.128 0.373-0.212 0.804-0.234 1.251l-0 0.011c-0.034 0.009-0.017 0-0.034 0.018-0.267-0.065-0.359-0.342-0.459-0.575-0.136-0.366-0.215-0.79-0.215-1.231 0-0.356 0.051-0.7 0.147-1.025l-0.006 0.026c0.059-0.175 0.309-0.727 0.209-0.895-0.052-0.159-0.217-0.25-0.309-0.379-0.109-0.154-0.209-0.329-0.292-0.514l-0.008-0.020c-0.2-0.467-0.3-0.985-0.517-1.452-0.131-0.244-0.269-0.454-0.424-0.65l0.007 0.009c-0.165-0.191-0.317-0.404-0.449-0.63l-0.011-0.020c-0.041-0.091-0.1-0.242-0.034-0.342 0.012-0.058 0.058-0.103 0.117-0.112l0.001-0c0.11-0.090 0.419 0.027 0.527 0.077 0.317 0.12 0.59 0.261 0.843 0.427l-0.016-0.010c0.117 0.082 0.244 0.241 0.394 0.282h0.175c0.267 0.059 0.569 0.018 0.819 0.091 0.459 0.155 0.856 0.349 1.223 0.587l-0.021-0.013c1.104 0.713 1.988 1.677 2.586 2.816l0.020 0.041c0.1 0.192 0.144 0.369 0.235 0.569 0.175 0.412 0.391 0.829 0.569 1.227 0.169 0.428 0.369 0.798 0.607 1.139l-0.012-0.018c0.125 0.175 0.627 0.266 0.852 0.357 0.237 0.083 0.427 0.162 0.611 0.251l-0.037-0.016c0.287 0.175 0.567 0.375 0.837 0.567 0.137 0.095 0.554 0.304 0.579 0.472zM18.302 22.452c0 0.015 0.001 0.032 0.001 0.049 0 0.558-0.249 1.057-0.643 1.393l-0.003 0.002c-0.432 0.352-0.989 0.566-1.596 0.566-0.047 0-0.094-0.001-0.14-0.004l0.006 0c-0.739-0.010-1.419-0.25-1.976-0.651l0.010 0.007 0.296-0.595c0.429 0.24 0.939 0.389 1.481 0.41l0.006 0c0.027 0.002 0.058 0.003 0.090 0.003 0.332 0 0.641-0.104 0.894-0.281l-0.005 0.003c0.229-0.174 0.375-0.446 0.375-0.752 0-0.006-0-0.011-0-0.017v0.001c0-0.412-0.287-0.762-0.81-1.056-0.485-0.266-1.453-0.821-1.453-0.821-0.478-0.296-0.791-0.817-0.791-1.411 0-0.021 0-0.042 0.001-0.063l-0 0.003c-0.001-0.019-0.001-0.041-0.001-0.063 0-0.515 0.227-0.977 0.586-1.291l0.002-0.002c0.382-0.324 0.881-0.521 1.426-0.521 0.035 0 0.069 0.001 0.103 0.002l-0.005-0c0.009-0 0.020-0 0.031-0 0.639 0 1.234 0.191 1.73 0.52l-0.012-0.007-0.266 0.595c-0.391-0.176-0.847-0.282-1.327-0.287l-0.002-0c-0.024-0.002-0.051-0.003-0.079-0.003-0.28 0-0.538 0.098-0.74 0.262l0.002-0.002c-0.189 0.157-0.309 0.392-0.31 0.655v0c0 0.41 0.292 0.762 0.832 1.062 0.491 0.269 1.483 0.837 1.483 0.837 0.488 0.287 0.811 0.809 0.811 1.407 0 0.018-0 0.037-0.001 0.055l0-0.003zM20.374 22.983c-0.273-0.545-0.432-1.187-0.432-1.866 0-0.107 0.004-0.213 0.012-0.317l-0.001 0.014q0-2.611 1.587-2.612c0.026-0.002 0.057-0.003 0.089-0.003 0.475 0 0.892 0.248 1.129 0.622l0.003 0.005c0.271 0.542 0.43 1.182 0.43 1.858 0 0.104-0.004 0.207-0.011 0.309l0.001-0.014q0 2.632-1.587 2.634c-0.027 0.002-0.058 0.003-0.089 0.003-0.475 0-0.893-0.248-1.13-0.622l-0.003-0.005zM24.488 24.535l-1.27-0.625c0.116-0.097 0.22-0.199 0.316-0.309l0.003-0.003c0.513-0.692 0.821-1.563 0.821-2.505 0-0.109-0.004-0.217-0.012-0.324l0.001 0.014q0-3.43-2.693-3.432c-0.040-0.002-0.087-0.003-0.134-0.003-0.767 0-1.456 0.337-1.925 0.872l-0.002 0.003c-0.511 0.692-0.818 1.562-0.818 2.504 0 0.106 0.004 0.211 0.012 0.315l-0.001-0.014c-0.009 0.101-0.014 0.219-0.014 0.338 0 0.874 0.274 1.684 0.74 2.349l-0.009-0.013c0.449 0.478 1.086 0.776 1.791 0.776 0.066 0 0.131-0.003 0.195-0.008l-0.009 0.001c0.009 0 0.021 0 0.032 0 0.311 0 0.612-0.045 0.897-0.128l-0.022 0.006 1.656 0.965 0.45-0.777zM28.636 24.366h-3.287v-6.91h1.106v6.061h2.181zM13.235 19.268c-0.287 2.084-0.944 3.965-1.905 5.65l0.040-0.077c-0.385 0.741-1.113 1.257-1.968 1.34l-0.010 0.001c-0.259-0.014-0.5-0.076-0.719-0.177l0.012 0.005v-0.617c0.137 0.021 0.295 0.033 0.456 0.033 0.009 0 0.018-0 0.028-0h-0.001c0.016 0.001 0.034 0.001 0.052 0.001 0.289 0 0.554-0.105 0.758-0.28l-0.002 0.001c0.22-0.181 0.361-0.451 0.369-0.755l0-0.001c-0.053-0.438-0.154-0.837-0.299-1.214l0.012 0.034-1.267-3.944h1.137l0.909 2.949c0.162 0.416 0.256 0.898 0.256 1.401 0 0.001 0 0.002 0 0.002v-0c0.482-1.262 0.848-2.734 1.034-4.261l0.009-0.092zM8.215 24.366h-1.158q-0.049-2.761-0.337-5.511h-0.010l-1.762 5.511h-0.881l-1.75-5.511h-0.012q-0.205 2.751-0.244 5.511h-1.056q0.103-3.685 0.512-6.911h1.437l1.668 5.079h0.010l1.683-5.079h1.368q0.454 3.777 0.535 6.911zM21.505 7.879c-0.002 0-0.005-0-0.008-0-0.119 0-0.234 0.015-0.344 0.043l0.010-0.002v0.016h0.017c0.086 0.128 0.174 0.239 0.269 0.343l-0.002-0.002c0.067 0.134 0.125 0.267 0.192 0.4l0.017-0.019c0.109-0.086 0.178-0.218 0.178-0.366 0-0.018-0.001-0.035-0.003-0.053l0 0.002c-0.050-0.059-0.057-0.117-0.1-0.175-0.050-0.084-0.157-0.125-0.225-0.191z"></path> </g></svg>',
-        title: "MYSQL",
+        iconType: "lineicon",
+        icon: "lni lni-nodejs",
+        title: "Node.js",
+        description:
+          "Experienced in building server-side applications and REST APIs using Node.js frameworks. Experience integrating databases, handling authentication, and implementing backend logic.",
       },
       {
-        iconType: "svg",
-        icon: '<svg style="transform: translateY(-3px);" fill="#ffffff" viewBox="-16.64 -16.64 65.28 65.28" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>mongodb</title> <path d="M15.821 23.185s0-10.361 0.344-10.36c0.266 0 0.612 13.365 0.612 13.365-0.476-0.056-0.956-2.199-0.956-3.005zM22.489 12.945c-0.919-4.016-2.932-7.469-5.708-10.134l-0.007-0.006c-0.338-0.516-0.647-1.108-0.895-1.732l-0.024-0.068c0.001 0.020 0.001 0.044 0.001 0.068 0 0.565-0.253 1.070-0.652 1.409l-0.003 0.002c-3.574 3.034-5.848 7.505-5.923 12.508l-0 0.013c-0.001 0.062-0.001 0.135-0.001 0.208 0 4.957 2.385 9.357 6.070 12.115l0.039 0.028 0.087 0.063q0.241 1.784 0.412 3.576h0.601c0.166-1.491 0.39-2.796 0.683-4.076l-0.046 0.239c0.396-0.275 0.742-0.56 1.065-0.869l-0.003 0.003c2.801-2.597 4.549-6.297 4.549-10.404 0-0.061-0-0.121-0.001-0.182l0 0.009c-0.003-0.981-0.092-1.94-0.261-2.871l0.015 0.099z"></path> </g></svg>',
-        title: "mongodb",
+        iconType: "lineicon",
+        icon: "lni lni-database",
+        title: "SQL & NoSQL Databases",
+        description:
+          "Familiar with relational database design and querying using SQL databases such as MySQL and SQLite. Familiar with document-based database systems such as MongoDB.",
       },
     ],
   },
   {
-    name: "Mobile Development",
-    icon: "lni lni-mobile",
-    title: "Mobile Development",
+    name: "Game & Graphics Development",
+    icon: "lni lni-paint-brush",
+    title: "Game & Graphics Development",
     description:
-      "Developing cross-platform mobile apps with clean and efficient code.",
+      "Developing interactive applications and visual assets using real-time engines and digital design tools.",
     skills: [
       {
+        iconType: "custom",
+        icon: unityIcon,
+        title: "Unity",
+        description:
+          "Proficient in developing interactive applications and gameplay systems using Unity and C#. Familiar with implementing gameplay mechanics, scripting behaviours, and optimizing real-time applications.",
+      },
+      {
         iconType: "lineicon",
-        icon: "lni lni-react",
-        title: "React Native",
+        icon: "lni lni-adobe",
+        title: "Adobe Photoshop",
+        description:
+          "Experienced in Adobe Photoshop for creating and editing graphics, textures, and visual assets for games and other creative projects. Experience in using Photoshop's tools and features to enhance the visual quality of game assets and create compelling designs.",
       },
       {
         iconType: "svg",
-        icon: '<svg style="transform: translateY(-3px);" fill="#ffffff" width="22px" height="22px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M0 16v16h32v-32h-32zM25.786 14.724c0.813 0.203 1.432 0.568 2.005 1.156 0.292 0.312 0.729 0.885 0.766 1.026 0.010 0.042-1.38 0.974-2.224 1.495-0.031 0.021-0.156-0.109-0.292-0.313-0.411-0.599-0.844-0.859-1.505-0.906-0.969-0.063-1.594 0.443-1.589 1.292-0.005 0.208 0.042 0.417 0.135 0.599 0.214 0.443 0.615 0.708 1.854 1.245 2.292 0.984 3.271 1.635 3.88 2.557 0.682 1.031 0.833 2.677 0.375 3.906-0.51 1.328-1.771 2.234-3.542 2.531-0.547 0.099-1.849 0.083-2.438-0.026-1.286-0.229-2.505-0.865-3.255-1.698-0.297-0.323-0.87-1.172-0.833-1.229 0.016-0.021 0.146-0.104 0.292-0.188s0.682-0.396 1.188-0.688l0.922-0.536 0.193 0.286c0.271 0.411 0.859 0.974 1.214 1.161 1.021 0.542 2.422 0.464 3.115-0.156 0.281-0.234 0.438-0.594 0.417-0.958 0-0.37-0.047-0.536-0.24-0.813-0.25-0.354-0.755-0.656-2.198-1.281-1.651-0.714-2.365-1.151-3.010-1.854-0.406-0.464-0.708-1.010-0.88-1.599-0.12-0.453-0.151-1.589-0.057-2.042 0.339-1.599 1.547-2.708 3.281-3.036 0.563-0.109 1.875-0.068 2.427 0.068zM18.276 16.063l0.010 1.307h-4.167v11.839h-2.948v-11.839h-4.161v-1.281c0-0.714 0.016-1.307 0.036-1.323 0.016-0.021 2.547-0.031 5.62-0.026l5.594 0.016z"></path> </g></svg>',
-        title: "TypeScript",
+        icon: '<svg style="transform: translateY(-3px);" width="33px" height="33px" viewBox="8 8 60.000002 60.000002" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" enable-background="new 0 0 76.00 76.00" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="#ffffff" fill-opacity="1" stroke-width="0.2" stroke-linejoin="round" d="M 23.9216,22.2925L 30.9309,22.2925L 40.7089,52.3818L 34.8148,52.3818L 32.0925,43.8554L 22.5386,43.8554L 19.949,52.3818L 14.2799,52.3818L 23.9216,22.2925 Z M 25.7526,32.2927L 23.4316,39.7038L 31.1545,39.7038L 28.7885,32.2927C 28.2077,30.4626 27.7169,28.4088 27.2706,26.6681L 27.1815,26.6681C 26.7348,28.4088 26.288,30.5071 25.7526,32.2927 Z M 42.7186,41.8462C 42.7186,35.8199 46.3794,30.1499 53.3437,30.1499C 60.4412,30.1499 62.7186,35.954 62.7186,40.7305C 62.7186,41.7567 62.6295,42.5606 62.5399,43.0515L 47.9868,43.0515C 48.1204,46.9808 51.2004,48.676 54.6826,48.676C 57.2272,48.676 59.0578,48.3202 60.7098,47.6948L 61.5133,51.4897C 59.6381,52.2477 57.0495,52.8735 53.9232,52.8735C 46.8702,52.8735 42.7186,48.4979 42.7186,41.8462 Z M 53.031,33.9002C 49.6379,33.9002 48.209,36.9802 47.9868,39.2121L 57.5403,39.2121C 57.5848,37.2038 56.6913,33.9002 53.031,33.9002 Z "></path> </g></svg>',
+        title: "After Effects",
+        description:
+          "Experienced in Adobe After Effects for creating motion graphics, visual effects, and animations for games and other creative projects. Experience in using After Effects' tools and features to enhance the visual quality of game assets and create compelling designs.",
       },
+    ],
+  },
+  {
+    name: "QA Automation",
+    icon: "lni lni-checkmark-circle",
+    title: "QA Automation",
+    description:
+      "Ensuring software reliability through automated testing, quality assurance principles, and performance testing.",
+    skills: [
       {
         iconType: "lineicon",
-        icon: "lni lni-android",
-        title: "Android Development",
+        icon: "lni lni-bug",
+        title: "Test Automation",
+        description:
+          "Strong foundation in software quality assurance principles, including test case design, automated testing strategies, and debugging workflows.",
       },
       {
-        iconType: "lineicon",
-        icon: "lni lni-apple",
-        title: "iOS Development",
+        iconType: "custom",
+        icon: pwIcon,
+        title: "Playwright",
+        description:
+          "Experienced in writing automated end-to-end tests using Playwright for validating web application functionality across multiple browsers and user scenarios.",
+      },
+      {
+        iconType: "svg",
+        icon: '<svg xmlns="http://www.w3.org/2000/svg" style="transform: translateY(-3px);" width="30px" height="30px" viewBox="-17 0 417 331" fill="none"><path d="M373.5 361.998H0.5L124.674 97.1265L199.473 152.115L297.037 0.00146484L373.5 361.998ZM236.74 304.788H237.538C246.77 304.805 255.647 301.236 262.298 294.836C265.707 291.743 268.418 287.961 270.253 283.74C272.088 279.519 273.005 274.957 272.942 270.355C273.094 265.921 272.252 261.51 270.477 257.444C268.702 253.378 266.039 249.761 262.684 246.859C257.028 241.184 249.406 237.902 241.397 237.692H240.785C239.736 237.687 238.693 237.83 237.685 238.117L257.376 208.847L241.689 197.897L234.265 208.847L215.293 237.825C212.033 242.628 209.305 246.859 207.616 249.799C205.863 252.91 204.355 256.153 203.105 259.498C201.684 263.053 200.953 266.846 200.95 270.674C200.906 275.222 201.819 279.728 203.63 283.9C205.44 288.072 208.109 291.816 211.461 294.889C218.025 301.284 226.831 304.856 235.995 304.841L236.74 304.788ZM153.346 273.282L175.086 304.029H198.329L172.757 268.359L195.469 236.827L180.394 226.396L173.742 235.177L153.319 263.969V206.079L132.963 189.488V304.016H153.319V273.255L153.346 273.282ZM236.767 285.589C232.797 285.589 228.99 284.012 226.183 281.205C223.376 278.398 221.799 274.591 221.799 270.621C221.799 266.651 223.376 262.844 226.183 260.037C228.99 257.23 232.797 255.653 236.767 255.653H236.9C238.871 255.655 240.822 256.056 242.635 256.831C244.448 257.606 246.086 258.74 247.45 260.164C248.886 261.482 250.029 263.087 250.806 264.874C251.582 266.662 251.976 268.592 251.961 270.541C251.912 274.538 250.292 278.354 247.451 281.165C244.61 283.976 240.776 285.556 236.78 285.562L236.767 285.589Z" fill="#ffffff"/></svg>',
+        title: "k6 Performance Testing",
+        description:
+          "Familiar with performance and load testing using k6 to evaluate application scalability and response behaviour under simulated traffic conditions.",
       },
     ],
   },
@@ -103,51 +145,29 @@ const categories = [
     name: "DevOps & Tools",
     icon: "lni lni-cloud",
     title: "DevOps & Tools",
-    description: "Streamlining development workflows and deployment pipelines.",
+    description:
+      "Supporting development workflows using modern tooling for version control, containerization, and cloud deployment.",
     skills: [
       {
         iconType: "lineicon",
         icon: "lni lni-docker",
         title: "Docker",
+        description:
+          "Familiar with containerizing applications using Docker and managing multi-container environments using Docker Compose.",
       },
       {
         iconType: "lineicon",
-        icon: "lni lni-github",
-        title: "GitHub",
+        icon: "lni lni-git",
+        title: "Git & CI/CD",
+        description:
+          "Experienced with Git-based workflows including branching, merging, and collaborative development. Familiar with CI/CD pipelines using GitHub Actions and GitLab.",
       },
       {
         iconType: "svg",
-        icon: '<svg style="transform: translateY(-3px);" viewBox="-6.72 -6.72 29.44 29.44" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g fill="#ffffff"> <path d="M7.47 12.412l3.348-.592.031-.007-1.722-2.049a291.474 291.474 0 01-1.723-2.058c0-.01 1.779-4.909 1.789-4.926a788.95 788.95 0 012.934 5.066l2.95 5.115.023.039-10.948-.001 3.317-.587zM.9 11.788c0-.003.811-1.412 1.803-3.131L4.507 5.53l2.102-1.764C7.765 2.797 8.714 2 8.717 2a.37.37 0 01-.033.085L6.4 6.981 4.16 11.789l-1.63.002c-.897.001-1.63 0-1.63-.003z"></path> </g> </g></svg>',
+        icon: '<svg style="transform: translateY(-3px);" viewBox="-8 -8 32.44 32.44" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g fill="#ffffff"> <path d="M7.47 12.412l3.348-.592.031-.007-1.722-2.049a291.474 291.474 0 01-1.723-2.058c0-.01 1.779-4.909 1.789-4.926a788.95 788.95 0 012.934 5.066l2.95 5.115.023.039-10.948-.001 3.317-.587zM.9 11.788c0-.003.811-1.412 1.803-3.131L4.507 5.53l2.102-1.764C7.765 2.797 8.714 2 8.717 2a.37.37 0 01-.033.085L6.4 6.981 4.16 11.789l-1.63.002c-.897.001-1.63 0-1.63-.003z"></path> </g> </g></svg>',
         title: "Azure",
-      },
-      {
-        iconType: "svg",
-        icon: '<svg style="transform: translateY(-3px);" width="28px" height="28px" viewBox="-0.08 0 70.000002 70.000002" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <metadata> <rdf:rdf> <cc:work> <dc:subject> Compute </dc:subject> <dc:identifier> service-fabric-cluster </dc:identifier> <dc:title> Service Fabric Cluster </dc:title> <dc:format> image/svg+xml </dc:format> <dc:publisher> Amido Limited </dc:publisher> <dc:creator> Richard Slater </dc:creator> <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"></dc:type> </cc:work> </rdf:rdf> </metadata> <path d="m 323.40612,258.6123 a 11.087409,11.087409 0 0 0 -11.08792,11.08793 11.087409,11.087409 0 0 0 0.51313,3.29145 l -6.98471,5.82994 a 11.087409,11.087409 0 0 0 -6.10505,-1.84075 11.087409,11.087409 0 0 0 -11.08702,11.08793 11.087409,11.087409 0 0 0 9.21369,10.91597 l 2.85162,10.20918 a 11.087409,11.087409 0 0 0 -3.791,8.33043 11.087409,11.087409 0 0 0 11.08702,11.08792 11.087409,11.087409 0 0 0 10.45896,-7.44715 l 10.63362,0 a 11.087409,11.087409 0 0 0 10.34946,7.11593 11.087409,11.087409 0 0 0 11.08702,-11.08702 11.087409,11.087409 0 0 0 -4.18558,-8.66346 l 2.65524,-9.50329 a 11.087409,11.087409 0 0 0 9.47342,-10.95851 11.087409,11.087409 0 0 0 -11.08701,-11.08793 11.087409,11.087409 0 0 0 -6.12407,1.85342 l -7.23267,-6.03809 a 11.087409,11.087409 0 0 0 0.44888,-3.09597 11.087409,11.087409 0 0 0 -11.08703,-11.08793 z m 7.32408,19.39302 6.58108,5.49328 a 11.087409,11.087409 0 0 0 -0.99729,4.5702 11.087409,11.087409 0 0 0 6.57746,10.11868 l -2.23171,7.98833 a 11.087409,11.087409 0 0 0 -1.20182,-0.0697 11.087409,11.087409 0 0 0 -10.87345,8.93586 l -9.77659,0 a 11.087409,11.087409 0 0 0 -10.792,-8.60463 11.087409,11.087409 0 0 0 -1.67061,0.13484 l -2.31587,-8.29061 a 11.087409,11.087409 0 0 0 6.8001,-10.21279 11.087409,11.087409 0 0 0 -1.00907,-4.5883 l 6.39827,-5.34215 a 11.087409,11.087409 0 0 0 7.18742,2.6489 11.087409,11.087409 0 0 0 7.32408,-2.78193 z" color="#000000" overflow="visible" fill="#ffffff" enable-background="accumulate" transform="translate(-288.655 -258.612)"></path> </g></svg>',
-        title: "Service Fabric",
-      },
-    ],
-  },
-  {
-    name: "Graphics Development",
-    icon: "lni lni-paint-brush",
-    title: "Graphics Development",
-    description:
-      "Creating stunning visuals and designs with powerful creative tools.",
-    skills: [
-      {
-        iconType: "custom",
-        icon: unityIcon,
-        title: "Unity",
-      },
-      {
-        iconType: "lineicon",
-        icon: "lni lni-adobe",
-        title: "Adobe Photoshop",
-      },
-      {
-        iconType: "lineicon",
-        icon: "lni lni-figma",
-        title: "Figma",
+        description:
+          "Familiar with deploying and managing applications on Microsoft Azure cloud services.",
       },
     ],
   },
@@ -157,24 +177,47 @@ const Skillz = () => {
   useEffect(() => {
     new WOW().init();
   }, []);
+  const [selectedSkill, setSelectedSkill] = useState(null);
 
-  const renderIcon = (skill) => {
+  const openModal = (skill) => {
+    setSelectedSkill(skill);
+  };
+
+  const closeModal = () => {
+    setSelectedSkill(null);
+  };
+  const renderSkillIconContent = (skill) => {
     switch (skill.iconType) {
       case "lineicon":
-        return <i className={skill.icon} title={skill.title}></i>;
+        return <i className={skill.icon}></i>;
+
       case "custom":
-        return <img src={skill.icon} alt={skill.title} title={skill.title} />;
+        return <img src={skill.icon} alt={skill.title} />;
+
       case "svg":
         return (
           <span
             className="svg-icon"
-            title={skill.title}
             dangerouslySetInnerHTML={{ __html: skill.icon }}
           ></span>
         );
+
       default:
         return null;
     }
+  };
+
+  const renderIcon = (skill) => {
+    return (
+      <div
+        className="skill-icon-wrapper"
+        onClick={() => openModal(skill)}
+        style={{ cursor: "pointer" }}
+        title={`Click to see details about ${skill.title}`}
+      >
+        {renderSkillIconContent(skill)}
+      </div>
+    );
   };
 
   return (
@@ -184,14 +227,16 @@ const Skillz = () => {
           <div className="col-12">
             <div className="section-title">
               <h3 className="wow zoomIn" data-wow-delay=".2s">
-                Skills
+                Technical Skills
               </h3>
               <h2 className="wow fadeInUp" data-wow-delay=".4s">
                 Continuously Evolving My Expertise
               </h2>
               <p className="wow fadeInUp" data-wow-delay=".6s">
-                A versatile skill set and technological proficiency honed to
-                create innovative and effective solutions.
+                A selection of technologies, frameworks, and tools I have worked
+                with while developing web, backend, and interactive
+                applications. I continuously expand my skill set by exploring
+                new technologies and improving my development practices.
               </p>
             </div>
           </div>
@@ -212,6 +257,23 @@ const Skillz = () => {
           ))}
         </div>
       </div>
+      {selectedSkill && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="skill-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="close-btn" onClick={closeModal}>
+              &times;
+            </button>
+            <h3>{selectedSkill.title}</h3>
+            <p>
+              {selectedSkill.description ||
+                "Expertise in building scalable solutions using this technology."}
+            </p>
+            <button className="btn-primary" onClick={closeModal}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

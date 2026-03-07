@@ -66,3 +66,38 @@
 .skills .single-feature p {
   line-height: 22px;
 }
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.skill-modal {
+  background: #001f26;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  color: white;
+  border: 1px solid #444;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
