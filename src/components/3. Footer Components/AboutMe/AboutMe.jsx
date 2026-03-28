@@ -14,11 +14,10 @@ const AboutMe = () => {
               </h2>
 
               <p className="wow fadeInUp" data-wow-delay=".4s">
-                <hr /> I am currently pursuing my Master’s degree in Software
-                Engineering in Novi Sad, Serbia. I hold a Bachelor’s degree in
-                Applied Software Engineering and continue to develop my skills
-                through academic work and hands-on projects, focusing on
-                building practical and well-structured software solutions.
+                <hr /> I hold a Master’s degree in Applied Software Engineering
+                and continue to develop my skills through academic work and
+                hands-on projects, focusing on building practical and
+                well-structured software solutions.
                 <br />
                 <br />
                 I am passionate about problem-solving, software architecture,
