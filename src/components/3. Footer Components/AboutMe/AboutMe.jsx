@@ -21,9 +21,8 @@ const AboutMe = () => {
                 <br />
                 <br />
                 I am passionate about problem-solving, software architecture,
-                and continuous improvement. For a full overview of my career and
-                contact information, please check my resume at the top of the
-                page, or feel free to reach out using the contact form.
+                and continuous improvement. Feel free to reach out using the
+                contact form.
                 <hr />
                 <h2>Coding with purpose. </h2>
               </p>

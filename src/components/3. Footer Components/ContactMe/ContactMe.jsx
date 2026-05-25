@@ -11,6 +11,7 @@ const emailConfig = {
 const ContactMe = () => {
   const form = useRef();
   const [isMessageSent, setMessageSent] = useState(false);
+  const [sendError, setSendError] = useState("");
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -22,10 +23,13 @@ const ContactMe = () => {
       .then((result) => {
         console.log(result.text);
         setMessageSent(true);
+        setSendError("");
         e.target.reset();
       })
       .catch((error) => {
         console.log(error.text);
+        setMessageSent(false);
+        setSendError("Message failed to send. Please try again.");
       });
   };
 
@@ -69,9 +73,16 @@ const ContactMe = () => {
             </div>
             <div className="submit-button-wrapper" data-wow-delay=".6s">
               {!isMessageSent ? (
-                <button type="submit" className="submit-button">
-                  Send
-                </button>
+                <>
+                  <button type="submit" className="submit-button">
+                    Send
+                  </button>
+                  {sendError && (
+                    <div className="error-message">
+                      <p>{sendError}</p>
+                    </div>
+                  )}
+                </>
               ) : (
                 <div className="success-message">
                   <h4>Message Sent Successfully!</h4>
