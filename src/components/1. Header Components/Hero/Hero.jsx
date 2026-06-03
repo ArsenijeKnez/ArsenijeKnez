@@ -45,7 +45,7 @@ const Hero = () => {
             >
               <Typewriter />
             </div>
-            <div className="btn-pos">
+            {/* <div className="btn-pos">
               {socialProfiles.map((profile, index) => (
                 <a
                   href={profile.url}
@@ -57,7 +57,7 @@ const Hero = () => {
                   <i className={`icon ${profile.icon}`}></i>
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

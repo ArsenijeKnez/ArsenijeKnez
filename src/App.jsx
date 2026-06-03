@@ -24,10 +24,10 @@ function App() {
       ) : (
         <>
           <Hero />
-          <Skillz />
           <ScrollToTopButton />
-          <Achievement />
           <Projects />
+          <Achievement />
+          <Skillz />
           <AboutMe />
         </>
       )}

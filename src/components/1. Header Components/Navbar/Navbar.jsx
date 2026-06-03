@@ -46,18 +46,18 @@ const Navbar = () => {
             <ul className="navbar-nav">
               <li className="nav-item">
                 <a
-                  href="#Skills"
-                  className={`nav-link ${isMenuOpen ? "not-blurred" : ""}`}
-                >
-                  <span className="link-span">Skills</span>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
                   href="#Projects"
                   className={`nav-link ${isMenuOpen ? "not-blurred" : ""}`}
                 >
                   <span className="link-span">Projects</span>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  href="#Skills"
+                  className={`nav-link ${isMenuOpen ? "not-blurred" : ""}`}
+                >
+                  <span className="link-span">Skills</span>
                 </a>
               </li>
               <li className="nav-item">
@@ -74,6 +74,16 @@ const Navbar = () => {
                   className={`nav-link ${isMenuOpen ? "not-blurred" : ""}`}
                 >
                   <span className="link-span">Contact Me</span>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  href="https://github.com/ArsenijeKnez"
+                  className={`nav-link ${isMenuOpen ? "not-blurred" : ""}`}
+                >
+                  <span className="link-span">
+                    <i className={`icon lni lni-github`}></i> GitHub
+                  </span>
                 </a>
               </li>
               {/* <li className="nav-item">

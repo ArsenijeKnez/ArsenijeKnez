@@ -74,9 +74,9 @@
 
 h1.first-name {
   margin-top: 0.8em;
-  margin-bottom: 0.4em;
+  margin-bottom: 0.6em;
   padding-bottom: 1em;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.2em;
   text-align: center;
   color: var(--highlight-color);
 }
@@ -84,7 +84,8 @@ h1.first-name {
 h1.last-name {
   text-align: center;
   padding-bottom: 2.4em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
+  letter-spacing: 0.1em;
 }
 
 .hero-area .hero-content h1 span {
@@ -165,7 +166,7 @@ h1.last-name {
     padding: 25px 0 100px 0;
     background-size: 150% auto;
     filter: brightness(0.8) contrast(1.2);
-    background-position: right bottom;
+    background-position: center top;
     background-repeat: no-repeat;
   }
 
@@ -198,7 +199,7 @@ h1.last-name {
     padding: 25px 0 100px 0;
     background-size: 150% auto;
     filter: brightness(0.8) contrast(1.2);
-    background-position: right bottom;
+    background-position: center top;
     background-repeat: no-repeat;
   }
   .hero-area .hero-content {
@@ -230,7 +231,7 @@ h1.last-name {
     padding: 25px 0 100px 0;
     background-size: 150% auto;
     filter: brightness(0.8) contrast(1.2);
-    background-position: right bottom;
+    background-position: center top;
     background-repeat: no-repeat;
   }
 

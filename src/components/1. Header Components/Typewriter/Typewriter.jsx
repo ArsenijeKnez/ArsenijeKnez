@@ -2,10 +2,10 @@ import React, { useState, useEffect, useMemo } from "react";
 import "./Typewriter.css";
 
 const typeWriterText = [
-  "Software Developer...",
+  "Software Engineer...",
+  "Full-Stack Developer...",
   "Unity Developer...",
-  "Automation & QA Enthusiast...",
-  "Full-Stack Developerr...",
+  "Automation Enthusiast...",
 ];
 
 const typing_speed = 150;
