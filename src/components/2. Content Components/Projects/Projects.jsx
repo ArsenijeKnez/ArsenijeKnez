@@ -6,34 +6,43 @@ import "slick-carousel/slick/slick-theme.css";
 import GridChargeGif from "../../../assets/images/GridCharge.gif";
 import FitnessDiaryGif from "../../../assets/images/FitnessDiary.gif";
 import MellisaWebGif from "../../../assets/images/MellisaWeb.gif";
+import CarRadarGif from "../../../assets/images/CarRadar.gif";
 
 const projectData = [
   {
+    title: "CarRadar",
+    description:
+      "Used-car market intelligence platform for Balkans and EU listings",
+    thumbnailUrl: CarRadarGif,
+    demoUrl: "https://carradar.app/",
+  },
+  {
+    title: "Base Defender",
+    description: "Unity-based 2D strategy game with tower defense mechanics",
+    thumbnailUrl: "https://www.youtube.com/embed/t70LbQjUq00",
+    demoUrl: "https://arsenijeknez.itch.io/base-defender",
+  },
+  {
     title: "GridCharger",
-    description: "Promotional Page for Electric Vehicle Charging App",
+    description:
+      "Template for a promotional landing page for an EV charging app",
     thumbnailUrl: GridChargeGif,
     demoUrl: "https://arsenijeknez.github.io/GridCharge/#gridcharge",
     githubUrl: "https://github.com/ArsenijeKnez/GridCharge",
   },
   {
-    title: "Base Defender",
-    description: "2D strategy game developed in Unity",
-    thumbnailUrl: "https://www.youtube.com/embed/t70LbQjUq00",
-    demoUrl: "https://arsenijeknez.itch.io/base-defender",
-  },
-  {
     title: "Fitness Diary",
-    description: "App managing personal fitness",
+    description: "Fitness tracking app for workouts and wellness planning",
     thumbnailUrl: FitnessDiaryGif,
     githubUrl: "https://github.com/ArsenijeKnez/FitnessApp",
   },
-  {
-    title: "Mellisa",
-    description: "Web page for an upcoming indie video game",
-    thumbnailUrl: MellisaWebGif,
-    demoUrl: "https://arsenijeknez.github.io/MellisaWeb/",
-    githubUrl: "https://github.com/ArsenijeKnez/MellisaWeb",
-  },
+  // {
+  //   title: "Mellisa",
+  //   description: "Old school marketing website for an indie video game project",
+  //   thumbnailUrl: MellisaWebGif,
+  //   demoUrl: "https://arsenijeknez.github.io/MellisaWeb/",
+  //   githubUrl: "https://github.com/ArsenijeKnez/MellisaWeb",
+  // },
 ];
 
 const Projects = () => {
@@ -88,8 +97,8 @@ const Projects = () => {
             My Portfolio
           </h2>
           <p className="wow fadeInUp" data-wow-delay=".6s">
-            A variety of template projects that have helped me develop and
-            refine my skills.
+            A variety of professional and personal projects that have helped me
+            develop and refine my skills.
           </p>
         </div>
         <Slider {...settings} className="slider">
