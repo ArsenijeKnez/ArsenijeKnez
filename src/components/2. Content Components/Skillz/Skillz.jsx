@@ -234,8 +234,7 @@ const Skillz = () => {
               </h2>
               <p className="wow fadeInUp" data-wow-delay=".6s">
                 A selection of technologies, frameworks, and tools I have worked
-                with while developing web, backend, and interactive
-                applications. I continuously expand my skill set by exploring
+                with the most. I continuously expand my skill set by exploring
                 new technologies and improving my development practices.
               </p>
             </div>

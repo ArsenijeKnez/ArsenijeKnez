@@ -14,15 +14,16 @@ const AboutMe = () => {
               </h2>
 
               <p className="wow fadeInUp" data-wow-delay=".4s">
-                <hr /> I hold a Master’s degree in Applied Software Engineering
-                and continue to develop my skills through academic work and
-                hands-on projects, focusing on building practical and
-                well-structured software solutions.
+                <hr /> Software Engineer with a Master's degree in Applied
+                Software Engineering and hands-on experience in full-stack web,
+                mobile, and game development. Focused on building practical,
+                scalable, and well-structured software solutions.
                 <br />
                 <br />
-                I am passionate about problem-solving, software architecture,
-                and continuous improvement. Feel free to reach out using the
-                contact form.
+                Passionate about problem-solving, software architecture, and
+                continuous learning. Always eager to take on new challenges and
+                contribute to meaningful projects. Feel free to get in touch
+                through the contact form.
                 <hr />
                 <h2>Coding with purpose. </h2>
               </p>
